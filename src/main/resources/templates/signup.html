@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        <title>Signup</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"/>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/"><i class="fas fa-book"></i> My Notes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div>
+            <form class="form-signin" th:action="@{/signup}" method="post">
+                <h1 class="h3 mb-3 font-weight-normal">Signup Here</h1>
+                <div th:if="${param.error}">
+                    Invalid email and password.
+                </div>
+                <div th:if="${param.logout}">
+                    You have been logged out.
+                </div>
+
+
+                <label for="inputUsername" class="sr-only">Username</label>
+                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Username" required />
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required />
+                <label for="inputFullname" class="sr-only">Full Name</label>
+                <input type="text" name="fullname" id="inputEmail" class="form-control" placeholder="Fullname" required />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+            </form>
+            <form class="form-signin" th:action="@{/login}" method="get">
+                <button class="btn btn-md btn-success btn-block" type="Submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+    </body>
+</html>
